@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang=”ja”>
+<head>
+<meta charset="UTF-8">
+<title> debug </title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+    
+function toOneDimension( previousValue, currentValue ) {
+    return previousValue.concat( currentValue );
+}
+
+    
+var sampleArrayA = [
+[ 'A1', 'A2', 'A3' ],
+[ 'B1', 'B2', 'B3' ],
+[ 'C1', 'C2', 'C3' ]
+];
+    
+//alert(sampleArrayA);    
+    
+//sampleArrayB.unshift(['D1','D2','D3']);    
+    
+//sampleArrayA.push(['D1','D2','D3']);
+    
+//sampleArrayA.push([null]);
+
+var sampleArrayB = sampleArrayA.reduceRight( toOneDimension );
+    
+//console.log(sampleArrayB);
+/*
+0: "C1"
+1: "C2"
+2: "C3"
+3: "B1"
+4: "B2"
+5: "B3"
+6: "A1"
+7: "A2"
+8: "A3"
+length: 9
+*/
+//この順番なら要望を満たしている。
+    
+//alert(sampleArrayB);    
+    
+for ( var counterVar = 0; counterVar < sampleArrayB.length; counterVar++ ) {
+    document.write( 'sampleArrayB[' +counterVar +']: ' );
+    //alert(sampleArrayB[counterVar]);
+    document.write( sampleArrayB[counterVar] );
+    document.write( '<br/>' );
+}
+</script>
+    
+</body>
+</html>
